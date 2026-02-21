@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MessageCircle, ArrowRight, MapPin } from "lucide-react";
-import { waLink, SITE_CONFIG } from "@/lib/constants";
+import { waLink } from "@/lib/constants";
 
 export default function HeroSection() {
   return (
@@ -25,49 +25,24 @@ export default function HeroSection() {
           {/* Location badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-xs font-inter px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
             <MapPin size={12} className="text-brand-red" />
-            Local pickup · Tallawong, NSW 2762
-          </div>
-
-          {/* NOT a clothing store clarifier — critical */}
-          <div className="inline-flex items-center gap-2 bg-brand-red/20 border border-brand-red/30 text-brand-red text-xs font-sora font-semibold px-4 py-2 rounded-full mb-6 ml-2 backdrop-blur-sm">
-            ✦ Custom Printing · Not a Clothing Store
+            Tallawong, NSW 2762
           </div>
 
           {/* Headline */}
           <h1 className="font-sora font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-tight mb-6">
-            Your Local{" "}
-            <span className="text-brand-red">Merch Partner</span>{" "}
+            Custom T-Shirt Printing{" "}
             <br className="hidden sm:block" />
-            in Tallawong
+            in <span className="text-brand-red">Tallawong</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="font-inter text-lg md:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
-            DTF custom printing for individuals, gyms & small businesses.
-            Fast turnaround. No minimums. Pickup ready in{" "}
-            <span className="text-white font-semibold">3–5 business days</span>.
+            Birthdays, businesses &amp; group events. Minimum 2 shirts per order.
+            Fast pickup available.
           </p>
-
-          {/* Value props */}
-          <div className="flex flex-wrap gap-4 mb-10">
-            {[
-              "✓ No Minimum Order",
-              "✓ Full Colour DTF",
-              "✓ Same-Day Quotes",
-              "✓ Local Pickup",
-            ].map((item) => (
-              <span
-                key={item}
-                className="text-white/60 font-inter text-sm"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4">
-            {/* Primary — WhatsApp */}
             <a
               href={waLink("default")}
               target="_blank"
@@ -78,19 +53,18 @@ export default function HeroSection() {
               Get a Quote on WhatsApp
             </a>
 
-            {/* Secondary */}
             <Link
               href="/portfolio"
               className="btn-outline-white text-base px-8 py-4"
             >
-              View Our Work
+              View Recent Work
               <ArrowRight size={18} />
             </Link>
           </div>
 
           {/* Micro-trust */}
           <p className="mt-6 text-white/40 font-inter text-xs">
-            {SITE_CONFIG.yearsInBusiness} years in business · Based in Tallawong · Real local print shop
+            Local pickup &middot; Fast replies &middot; Transparent pricing
           </p>
         </div>
       </div>

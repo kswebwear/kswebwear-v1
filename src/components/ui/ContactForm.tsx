@@ -15,13 +15,10 @@ type FormData = {
 };
 
 const serviceOptions = [
-  "Custom T-Shirts (Individual)",
-  "Oversized Tees",
-  "Custom Hoodies",
-  "Gym / PT Merch",
-  "Starter Business Pack (10 tees)",
-  "Team Pack (25 tees)",
-  "Brand Builder Pack (50 tees)",
+  "Event / Celebration Tees",
+  "Small Business Order",
+  "Group / Team Order",
+  "Bulk Order (10+ shirts)",
   "Other / Not Sure",
 ];
 

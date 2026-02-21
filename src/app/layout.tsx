@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   keywords: [
     "custom t-shirt printing Tallawong",
     "DTF printing Sydney",
-    "gym merch Australia",
-    "custom hoodies",
-    "business merch packs",
+    "custom event shirts",
+    "business uniforms printing",
+    "group order tees",
     "local t-shirt printing NSW",
     "KS Web and Wear",
     "custom printing Rouse Hill",

@@ -14,8 +14,8 @@ export default function WhoWeServeSection() {
             <span className="text-brand-red">Made For You</span>
           </h2>
           <p className="font-inter text-brand-muted text-lg max-w-xl mx-auto">
-            Whether it&apos;s one custom tee or 50 branded uniforms — we handle it
-            all locally.
+            From birthday tees to branded uniforms — we handle it
+            all locally. Minimum 2 shirts per order.
           </p>
         </div>
 

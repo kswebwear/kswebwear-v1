@@ -1,43 +1,34 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-// Placeholder portfolio items — client to replace with real Instagram photos
 const portfolioItems = [
   {
     id: 1,
-    title: "Custom Event Tees",
-    category: "Individual",
+    title: "Birthday group order",
+    caption: "6 tees printed",
+    category: "Event",
     color: "from-orange-400 to-red-500",
   },
   {
     id: 2,
-    title: "Gym Team Merch",
-    category: "Gym",
+    title: "Restaurant Christmas staff shirts",
+    caption: "14 pieces",
+    category: "Business",
     color: "from-blue-500 to-indigo-600",
   },
   {
     id: 3,
-    title: "Business Uniforms",
-    category: "Business",
-    color: "from-gray-700 to-gray-900",
-  },
-  {
-    id: 4,
-    title: "Birthday Crew",
-    category: "Individual",
+    title: "Family vacation matching tees",
+    caption: "5 shirts",
+    category: "Group",
     color: "from-pink-500 to-purple-600",
   },
   {
-    id: 5,
-    title: "Oversized Drop",
-    category: "Individual",
+    id: 4,
+    title: "Packed and ready for pickup",
+    caption: "Tallawong",
+    category: "Pickup",
     color: "from-green-500 to-teal-600",
-  },
-  {
-    id: 6,
-    title: "Brand Builder Pack",
-    category: "Business",
-    color: "from-yellow-500 to-orange-500",
   },
 ];
 
@@ -65,7 +56,7 @@ export default function PortfolioPreview() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {portfolioItems.map((item) => (
             <div
               key={item.id}
@@ -81,17 +72,13 @@ export default function PortfolioPreview() {
                 </span>
               </div>
 
-              {/* Placeholder text (replace with real images) */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white/20 font-sora font-bold text-lg text-center px-4">
-                  📸 Photo Coming
-                </span>
-              </div>
-
-              {/* Hover title */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/60 to-transparent">
-                <p className="font-sora font-semibold text-white text-sm">
+              {/* Caption — always visible */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
+                <p className="font-sora font-semibold text-white text-xs sm:text-sm">
                   {item.title}
+                </p>
+                <p className="font-inter text-white/70 text-xs mt-0.5">
+                  {item.caption}
                 </p>
               </div>
             </div>

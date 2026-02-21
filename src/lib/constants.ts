@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: "KS Web & Wear",
-  tagline: "Your Local Merch Partner in Tallawong",
+  tagline: "Custom T-Shirt Printing in Tallawong",
   description:
-    "Custom DTF T-shirt printing for individuals, gyms & small businesses in Tallawong, NSW. Fast 3–5 day turnaround, local pickup.",
+    "Custom DTF T-shirt printing for events, businesses & groups in Tallawong, NSW. Minimum 2 shirts per order. Fast turnaround, local pickup.",
   location: "Tallawong, NSW 2762",
   whatsapp: "+61410369036",
   whatsappLink: "https://wa.me/61410369036",
@@ -12,153 +12,71 @@ export const SITE_CONFIG = {
   facebook: "https://facebook.com/kswebwear",
   logoUrl:
     "https://kswebwear.com.au/cdn/shop/files/Logo.png?v=1710504103&width=600",
-  turnaround: "3–5 Business Days",
-  yearsInBusiness: "2+",
+  turnaround: "2–4 Business Days",
+  minimumOrder: "Minimum 2 shirts per order",
 };
 
 export const WHATSAPP_MESSAGES = {
   default: encodeURIComponent(
     "Hi! I'd like to get a quote for custom printing. Can you help?"
   ),
-  individual: encodeURIComponent(
-    "Hi! I'm interested in custom T-shirt printing. Can I get a quote?"
-  ),
-  gym: encodeURIComponent(
-    "Hi! I'm a gym owner and I'm interested in branded merch for my team. Can I get a quote?"
+  events: encodeURIComponent(
+    "Hi! I'm interested in custom T-shirts for an event. Can I get a quote?"
   ),
   business: encodeURIComponent(
-    "Hi! I'm interested in a business merch pack. Can I get more details?"
+    "Hi! I'm interested in custom shirts for my business. Can I get more details?"
   ),
-  starter: encodeURIComponent(
-    "Hi! I'm interested in the Starter Business Pack (10 tees from $300). Can I get more details?"
+  group: encodeURIComponent(
+    "Hi! I'm looking for matching tees for a group order. Can I get a quote?"
   ),
-  team: encodeURIComponent(
-    "Hi! I'm interested in the Team Pack (25 tees from $720). Can I get more details?"
-  ),
-  brandBuilder: encodeURIComponent(
-    "Hi! I'm interested in the Brand Builder Pack (50 tees from $1,350). Can I get more details?"
+  bulk: encodeURIComponent(
+    "Hi! I'm interested in bulk pricing for 10+ shirts. Can I get more details?"
   ),
 };
 
 export const waLink = (msg: keyof typeof WHATSAPP_MESSAGES = "default") =>
   `${SITE_CONFIG.whatsappLink}?text=${WHATSAPP_MESSAGES[msg]}`;
 
-export const SERVICES = [
-  {
-    id: "custom-tees",
-    title: "Custom T-Shirts",
-    description:
-      "DTF printed tees for any occasion. Single or double-sided. Bring your artwork or we'll help design it.",
-    from: "$28",
-    icon: "Shirt",
-    tags: ["Singles welcome", "No minimums", "Any design"],
-  },
-  {
-    id: "oversized",
-    title: "Oversized Tees",
-    description:
-      "Premium oversized fit — perfect for streetwear, gyms, and group merch drops.",
-    from: "$34",
-    icon: "Package",
-    tags: ["Streetwear fit", "DTF print", "Popular choice"],
-  },
-  {
-    id: "hoodies",
-    title: "Custom Hoodies",
-    description:
-      "Branded hoodies with full DTF print quality. Great for teams, winter drops, and business uniforms.",
-    from: "$55",
-    icon: "Wind",
-    tags: ["DTF quality", "Full colour", "Team orders"],
-  },
-  {
-    id: "business-packs",
-    title: "Business Merch Packs",
-    description:
-      "Structured packs for gyms and small businesses. Fixed pricing, priority printing, and stored DTF for easy reorders.",
-    from: "$300",
-    icon: "Briefcase",
-    tags: ["Bulk savings", "Priority print", "Logo branding"],
-  },
-];
-
-export const BUSINESS_PACKS = [
-  {
-    id: "starter",
-    name: "Starter Pack",
-    price: "From $300",
-    quantity: "10 Tees",
-    features: [
-      "10 custom tees",
-      "1 logo placement (front or back)",
-      "DTF full-colour print",
-      "Local pickup Tallawong",
-      "3–5 business day turnaround",
-    ],
-    cta: "starter" as const,
-    popular: false,
-  },
-  {
-    id: "team",
-    name: "Team Pack",
-    price: "From $720",
-    quantity: "25 Tees",
-    features: [
-      "25 custom tees",
-      "Front + sleeve branding",
-      "DTF full-colour print",
-      "Priority print queue",
-      "Local pickup Tallawong",
-      "3–5 business day turnaround",
-    ],
-    cta: "team" as const,
-    popular: true,
-  },
-  {
-    id: "brand-builder",
-    name: "Brand Builder",
-    price: "From $1,350",
-    quantity: "50 Tees",
-    features: [
-      "50 custom tees",
-      "Front + back branding",
-      "DTF full-colour print",
-      "Priority print queue",
-      "Free stored DTF for reorders",
-      "Local pickup Tallawong",
-    ],
-    cta: "brandBuilder" as const,
-    popular: false,
-  },
-];
+export const PRICING = {
+  singleSide: [
+    { qty: "2 shirts", price: "$28 each" },
+    { qty: "3–9 shirts", price: "$26 each" },
+    { qty: "10+ shirts", price: "Message for event pricing" },
+  ],
+  doubleSide: [
+    { qty: "2 shirts", price: "$35 each" },
+    { qty: "3–9 shirts", price: "$32 each" },
+    { qty: "10+ shirts", price: "Message for event pricing" },
+  ],
+};
 
 export const WHO_WE_SERVE = [
   {
-    id: "individuals",
-    title: "Individuals",
-    emoji: "👕",
+    id: "events",
+    title: "Events & Celebrations",
+    emoji: "\uD83C\uDF89",
     description:
-      "Birthdays, events, custom ideas — no minimum order, singles welcome.",
-    examples: ["Birthday crew tees", "Custom gifts", "One-off designs"],
-    cta: "individual" as const,
-  },
-  {
-    id: "gyms",
-    title: "Gyms & PTs",
-    emoji: "🏋️",
-    description:
-      "Brand your gym with quality merch your members will actually wear.",
-    examples: ["Staff uniforms", "Member merch", "PT branding"],
-    cta: "gym" as const,
+      "Birthdays, family gatherings, vacations, Christmas parties.",
+    examples: ["Birthday crew tees", "Holiday matching shirts", "Party prints"],
+    cta: "events" as const,
   },
   {
     id: "businesses",
     title: "Small Businesses",
-    emoji: "💼",
+    emoji: "\uD83C\uDFE2",
     description:
-      "Affordable branded uniforms and merch packs built for local businesses.",
-    examples: ["Team uniforms", "Event merch", "Branded giveaways"],
+      "Staff uniforms, logo tees, event merch, seasonal shirts.",
+    examples: ["Staff uniforms", "Branded merch", "Event giveaways"],
     cta: "business" as const,
+  },
+  {
+    id: "groups",
+    title: "Group & Team Orders",
+    emoji: "\uD83D\uDC55",
+    description:
+      "Matching tees for teams, trips, or special occasions.",
+    examples: ["Team shirts", "Trip matching tees", "Club merch"],
+    cta: "group" as const,
   },
 ];
 
@@ -181,55 +99,50 @@ export const PROCESS_STEPS = [
   {
     step: "04",
     title: "Pickup in Tallawong",
-    description: "Ready in 3–5 business days. Pickup at Tallawong or local delivery.",
+    description: "Ready in 2–4 business days. Pickup at Tallawong or local delivery.",
   },
 ];
 
 export const FAQS = [
   {
-    question: "Do you have a minimum order quantity?",
+    question: "What is the minimum order?",
     answer:
-      "No minimums for individual custom tees — we print singles. For business packs, minimums start at 10 pieces.",
+      "Minimum 2 shirts per order. Mix sizes allowed.",
   },
   {
-    question: "How long does it take?",
+    question: "How long does printing take?",
     answer:
-      "Standard turnaround is 3–5 business days from design approval. Same-day pickup is available for pre-printed designs.",
+      "Typically 2–4 business days depending on quantity and design.",
   },
   {
-    question: "Where are you located?",
+    question: "Do you offer same-day printing?",
     answer:
-      "We're based in Tallawong, NSW 2762. Local pickup is available. We also offer limited delivery to nearby suburbs.",
+      "Same-day available for selected pre-printed designs only.",
+  },
+  {
+    question: "Do you help with design?",
+    answer:
+      "Basic layout assistance available. Final artwork required for printing.",
+  },
+  {
+    question: "Can I bring my own shirts?",
+    answer:
+      "We print on our supplied shirts only to ensure print quality and durability.",
+  },
+  {
+    question: "Is pickup available?",
+    answer:
+      "Local pickup available in Tallawong. Delivery available for larger orders.",
   },
   {
     question: "What printing method do you use?",
     answer:
-      "We use DTF (Direct to Film) printing — it's vibrant, durable, and works on virtually any fabric colour. Full colour with no extra charge.",
-  },
-  {
-    question: "Can I supply my own design?",
-    answer:
-      "Absolutely. You can send your artwork (PNG or vector preferred). If you don't have a design, we can help create one — just describe your idea.",
-  },
-  {
-    question: "Can I reorder the same design later?",
-    answer:
-      "Yes. We store your DTF file so reorders are quick and easy. Brand Builder pack customers get free stored DTF.",
-  },
-  {
-    question: "Do you print on garments I supply?",
-    answer:
-      "Yes — if you supply your own blank tees or hoodies, we can print on them. Just message us first to confirm the garment works with DTF.",
+      "We use DTF (Direct to Film) printing — vibrant, durable, and works on virtually any fabric colour. Full colour with no extra charge.",
   },
   {
     question: "How do I pay?",
     answer:
-      "We accept bank transfer and cash. Payment is generally required before printing begins. We'll confirm payment details when you get your quote.",
-  },
-  {
-    question: "Do you deliver?",
-    answer:
-      "We primarily do local pickup at Tallawong. Limited delivery available for bulk orders — ask us when you enquire.",
+      "We accept bank transfer and cash. Payment is required before printing begins. We'll confirm payment details when you get your quote.",
   },
   {
     question: "How do I get started?",

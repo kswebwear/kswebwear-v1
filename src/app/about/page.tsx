@@ -4,16 +4,16 @@ import { MessageCircle, MapPin, Heart, Zap, Users, ArrowRight } from "lucide-rea
 import { waLink, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About Us | KS Web & Wear — Local Merch Partner",
+  title: "About Us | KS Web & Wear — Local Print Shop",
   description:
-    "KS Web & Wear is a local custom T-shirt printing business based in Tallawong, NSW. 2+ years printing for individuals, gyms, and small businesses.",
+    "KS Web & Wear is a local custom T-shirt printing business based in Tallawong, NSW. Printing for events, businesses, and groups.",
 };
 
 const values = [
   {
     icon: MapPin,
     title: "Local & Accessible",
-    desc: "We're based in Tallawong. You can call, WhatsApp, and pickup in person. No warehouses, no chatbots.",
+    desc: "We're based in Tallawong. You can WhatsApp us and pickup in person. No warehouses, no chatbots.",
   },
   {
     icon: Heart,
@@ -23,12 +23,12 @@ const values = [
   {
     icon: Zap,
     title: "Fast & Responsive",
-    desc: "Same-day quotes, 3–5 day turnaround. When you need it done, we get it done.",
+    desc: "Fast WhatsApp replies, 2–4 day turnaround. When you need it done, we get it done.",
   },
   {
     icon: Users,
-    title: "Built for Communities",
-    desc: "Gyms, small businesses, birthday squads — we love printing for groups that care about how they look.",
+    title: "Built for Groups",
+    desc: "Events, small businesses, teams — we love printing for groups that care about how they look.",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </h1>
           <p className="font-inter text-white/70 text-xl max-w-2xl mx-auto">
             We&apos;re not a factory, not an online store, and not a generic print
-            platform. We&apos;re your local merch partner in Tallawong.
+            platform. We&apos;re your local print shop in Tallawong.
           </p>
         </div>
       </section>
@@ -63,29 +63,29 @@ export default function AboutPage() {
 
             <div className="prose prose-lg font-inter text-brand-muted leading-relaxed space-y-5">
               <p>
-                KS Web &amp; Wear started over 2 years ago right here in Tallawong,
+                KS Web &amp; Wear started right here in Tallawong,
                 NSW. What began as a simple idea — helping people get custom
                 printed tees without the hassle of big platforms — has grown
-                into a real local business serving individuals, gyms, and small
-                businesses across the Hills District and Western Sydney.
+                into a real local business serving events, small businesses, and
+                groups across the Hills District and Western Sydney.
               </p>
               <p>
                 We use DTF (Direct to Film) printing — one of the best
                 technologies available for custom garments. It means full
-                colour on any fabric, no minimums, and prints that actually
-                last. We don&apos;t do screen printing, heat vinyl, or bargain-bin
+                colour on any fabric and prints that actually last. We
+                don&apos;t do screen printing, heat vinyl, or bargain-bin
                 quality. We do it right, or we don&apos;t do it.
               </p>
               <p>
                 Our orders come in through WhatsApp and Instagram because
                 that&apos;s how real conversations happen. We quote you personally,
                 send you a design proof before printing, and you pick up
-                locally. No mystery, no hidden fees, no &ldquo;add to cart&rdquo;
-                nonsense.
+                locally. No mystery, no hidden fees.
               </p>
               <p>
-                Whether you&apos;re after one custom birthday tee or 50 branded
-                uniforms for your gym — this is the place.
+                Whether you&apos;re after matching birthday tees or branded
+                uniforms for your team — this is the place.
+                Minimum 2 shirts per order. Best value from 3+.
               </p>
             </div>
           </div>
@@ -115,29 +115,6 @@ export default function AboutPage() {
                   <p className="font-inter text-brand-muted text-sm leading-relaxed">
                     {v.desc}
                   </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats / Trust */}
-      <section className="section-padding bg-brand-navy">
-        <div className="section-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: "2+", label: "Years in Business" },
-              { value: "500+", label: "Orders Completed" },
-              { value: "3–5", label: "Day Turnaround" },
-              { value: "100%", label: "Local Pickup Option" },
-            ].map((stat) => (
-              <div key={stat.label} className="py-4">
-                <div className="font-sora font-bold text-4xl md:text-5xl text-brand-red mb-2">
-                  {stat.value}
-                </div>
-                <div className="font-inter text-white/60 text-sm">
-                  {stat.label}
                 </div>
               </div>
             ))}

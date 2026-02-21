@@ -1,11 +1,11 @@
-import { Clock, Package, MapPin, Star, Zap } from "lucide-react";
+import { MapPin, Clock, Package, Users, MessageCircle } from "lucide-react";
 
 const trustItems = [
-  { icon: Clock, label: "3–5 Day Turnaround" },
-  { icon: Package, label: "No Minimum Orders" },
-  { icon: Zap, label: "Same-Day Quotes" },
-  { icon: MapPin, label: "Tallawong Pickup" },
-  { icon: Star, label: "2+ Years Local" },
+  { icon: MapPin, label: "Based in Tallawong" },
+  { icon: Clock, label: "Fast Turnaround" },
+  { icon: Package, label: "Minimum 2 Shirts Per Order" },
+  { icon: Users, label: "Events & Business Orders" },
+  { icon: MessageCircle, label: "Direct WhatsApp Support" },
 ];
 
 export default function TrustBar() {

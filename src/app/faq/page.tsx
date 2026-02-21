@@ -85,8 +85,8 @@ export default function FAQPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {[
-              { emoji: "⏱️", label: "Turnaround", value: "3–5 Business Days" },
-              { emoji: "📦", label: "Min. Order", value: "No Minimum (Singles OK)" },
+              { emoji: "⏱️", label: "Turnaround", value: "2–4 Business Days" },
+              { emoji: "📦", label: "Min. Order", value: "2 Shirts Per Order" },
               { emoji: "📍", label: "Pickup", value: "Tallawong, NSW 2762" },
               { emoji: "💬", label: "Quote Time", value: "Same Day (WhatsApp)" },
             ].map((item) => (

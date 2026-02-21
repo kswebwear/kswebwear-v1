@@ -12,7 +12,7 @@ import HomeCTASection from "@/components/sections/HomeCTASection";
 export const metadata: Metadata = {
   title: "KS Web & Wear | Custom T-Shirt Printing Tallawong NSW",
   description:
-    "Local custom DTF t-shirt printing for individuals, gyms & small businesses in Tallawong, NSW. 3–5 day turnaround. No minimums. Get a quote on WhatsApp.",
+    "Custom DTF t-shirt printing for events, businesses & groups in Tallawong, NSW. Minimum 2 shirts. Fast turnaround. Get a quote on WhatsApp.",
 };
 
 export default function Home() {

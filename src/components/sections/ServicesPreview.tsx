@@ -1,14 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Shirt, Package, Wind, Briefcase } from "lucide-react";
-import { SERVICES, waLink } from "@/lib/constants";
-import { MessageCircle } from "lucide-react";
-
-const iconMap: Record<string, React.ElementType> = {
-  Shirt,
-  Package,
-  Wind,
-  Briefcase,
-};
+import { ArrowRight, MessageCircle } from "lucide-react";
+import { PRICING, waLink } from "@/lib/constants";
 
 export default function ServicesPreview() {
   return (
@@ -17,9 +9,9 @@ export default function ServicesPreview() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
-            <span className="tag">What We Print</span>
+            <span className="tag">Pricing</span>
             <h2 className="font-sora font-bold text-3xl md:text-4xl text-brand-navy mt-4">
-              Our Services
+              Simple, Transparent Pricing
             </h2>
           </div>
           <Link
@@ -30,72 +22,67 @@ export default function ServicesPreview() {
           </Link>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {SERVICES.map((service) => {
-            const Icon = iconMap[service.icon] || Shirt;
-            return (
-              <div
-                key={service.id}
-                className="group relative bg-brand-light rounded-2xl p-6 hover:bg-brand-navy hover:text-white transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Icon */}
-                <div className="w-12 h-12 bg-brand-red/10 group-hover:bg-brand-red/20 rounded-xl flex items-center justify-center mb-4 transition-colors">
-                  <Icon size={22} className="text-brand-red" />
-                </div>
-
-                {/* From price */}
-                <div className="text-xs font-sora font-semibold text-brand-red uppercase tracking-wider mb-2">
-                  From {service.from}
-                </div>
-
-                <h3 className="font-sora font-bold text-lg text-brand-navy group-hover:text-white mb-2 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="font-inter text-brand-muted group-hover:text-white/70 text-sm leading-relaxed mb-4 transition-colors">
-                  {service.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-inter bg-white group-hover:bg-white/10 text-brand-muted group-hover:text-white/60 px-2 py-0.5 rounded-full transition-all"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <a
-                  href={waLink("default")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-brand-whatsapp font-sora font-semibold text-xs hover:gap-2.5 transition-all duration-200"
+        {/* Pricing Tables */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Single-Side */}
+          <div className="card">
+            <h3 className="font-sora font-bold text-xl text-brand-navy mb-5">
+              Single-Side Printing
+            </h3>
+            <div className="flex flex-col gap-3">
+              {PRICING.singleSide.map((tier) => (
+                <div
+                  key={tier.qty}
+                  className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
                 >
-                  <MessageCircle size={14} />
-                  Get Quote
-                </a>
-              </div>
-            );
-          })}
+                  <span className="font-inter text-sm text-brand-navy font-medium">
+                    {tier.qty}
+                  </span>
+                  <span className="font-sora font-semibold text-sm text-brand-red">
+                    {tier.price}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Double-Side */}
+          <div className="card">
+            <h3 className="font-sora font-bold text-xl text-brand-navy mb-5">
+              Double-Side Printing
+            </h3>
+            <div className="flex flex-col gap-3">
+              {PRICING.doubleSide.map((tier) => (
+                <div
+                  key={tier.qty}
+                  className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
+                >
+                  <span className="font-inter text-sm text-brand-navy font-medium">
+                    {tier.qty}
+                  </span>
+                  <span className="font-sora font-semibold text-sm text-brand-red">
+                    {tier.price}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Pricing note */}
-        <div className="mt-10 p-4 bg-brand-light rounded-xl border-l-4 border-brand-red">
-          <p className="font-inter text-sm text-brand-muted">
-            <span className="font-semibold text-brand-navy">Pricing guidance:</span>{" "}
-            Custom tees from $28 · Oversized from $34 · Hoodies from $55 · Business packs from $300.
-            Final pricing depends on quantity and design.{" "}
+        {/* Notes */}
+        <div className="mt-8 space-y-2">
+          <p className="font-inter text-sm text-brand-muted text-center">
+            Includes print setup &amp; small-batch production.
+          </p>
+          <p className="font-inter text-sm text-brand-muted text-center">
+            Bulk pricing available for business and event orders.{" "}
             <a
-              href={waLink("default")}
+              href={waLink("bulk")}
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-red font-semibold hover:underline"
             >
-              Get an exact quote →
+              Message for details &rarr;
             </a>
           </p>
         </div>

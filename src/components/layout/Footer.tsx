@@ -29,8 +29,8 @@ export default function Footer() {
               className="h-12 w-auto object-contain mb-4 brightness-0 invert"
             />
             <p className="text-gray-400 font-inter text-sm leading-relaxed mb-6">
-              Your local merch partner in Tallawong. Custom DTF printing for
-              individuals, gyms & small businesses.
+              Custom T-shirt printing in Tallawong. Events, businesses
+              & group orders. Minimum 2 shirts per order.
             </p>
             {/* Social */}
             <div className="flex gap-4">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { MessageCircle, Mail, MapPin, Clock, Instagram } from "lucide-react";
-import { waLink, SITE_CONFIG, WHATSAPP_MESSAGES } from "@/lib/constants";
+import { waLink, SITE_CONFIG } from "@/lib/constants";
 import ContactForm from "@/components/ui/ContactForm";
 
 export const metadata: Metadata = {
@@ -10,12 +10,10 @@ export const metadata: Metadata = {
 };
 
 const enquiryTypes = [
-  { label: "Custom T-Shirts (Individual)", key: "individual" as const },
-  { label: "Gym / PT Merch", key: "gym" as const },
-  { label: "Business Merch Pack", key: "business" as const },
-  { label: "Starter Pack (10 tees – $300)", key: "starter" as const },
-  { label: "Team Pack (25 tees – $720)", key: "team" as const },
-  { label: "Brand Builder (50 tees – $1,350)", key: "brandBuilder" as const },
+  { label: "Events & Celebrations", key: "events" as const },
+  { label: "Small Business Order", key: "business" as const },
+  { label: "Group & Team Order", key: "group" as const },
+  { label: "Bulk Order (10+)", key: "bulk" as const },
 ];
 
 export default function ContactPage() {
