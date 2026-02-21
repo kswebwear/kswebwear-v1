@@ -27,6 +27,7 @@ const serviceOptions = [
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
   const {
     register,
     handleSubmit,
@@ -35,21 +36,22 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // Build a WhatsApp message from form data
+    const now = Date.now();
+    if (now - lastSubmitTime < 5000) return;
+    setLastSubmitTime(now);
+
     const message = encodeURIComponent(
       `Hi! I'd like to enquire about custom printing.\n\n` +
-        `Name: ${data.name}\n` +
-        `Email: ${data.email}\n` +
-        `Phone: ${data.phone || "Not provided"}\n` +
+        `Name: ${data.name.trim()}\n` +
+        `Email: ${data.email.trim()}\n` +
+        `Phone: ${data.phone?.trim() || "Not provided"}\n` +
         `Service: ${data.service}\n` +
-        `Quantity: ${data.quantity || "Not specified"}\n\n` +
-        `Message: ${data.message}`
+        `Quantity: ${data.quantity?.trim() || "Not specified"}\n\n` +
+        `Message: ${data.message.trim()}`
     );
 
-    // Open WhatsApp with the pre-filled message
     window.open(`https://wa.me/61410369036?text=${message}`, "_blank");
 
-    // Mark as submitted
     setSubmitted(true);
     reset();
   };
@@ -106,7 +108,11 @@ export default function ContactForm() {
             type="text"
             placeholder="Your name"
             className={`form-input ${errors.name ? "border-brand-red" : ""}`}
-            {...register("name", { required: "Name is required" })}
+            {...register("name", {
+              required: "Name is required",
+              minLength: { value: 2, message: "Name is too short" },
+              maxLength: { value: 100, message: "Name is too long" },
+            })}
           />
           {errors.name && (
             <p className="text-brand-red text-xs mt-1">{errors.name.message}</p>
@@ -125,6 +131,7 @@ export default function ContactForm() {
               className={`form-input ${errors.email ? "border-brand-red" : ""}`}
               {...register("email", {
                 required: "Email is required",
+                maxLength: { value: 254, message: "Email is too long" },
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   message: "Invalid email address",
@@ -143,7 +150,9 @@ export default function ContactForm() {
               type="tel"
               placeholder="04XX XXX XXX"
               className="form-input"
-              {...register("phone")}
+              {...register("phone", {
+                maxLength: { value: 20, message: "Phone number is too long" },
+              })}
             />
           </div>
         </div>
@@ -181,7 +190,9 @@ export default function ContactForm() {
             type="text"
             placeholder="e.g. 1, 10, 25, not sure yet..."
             className="form-input"
-            {...register("quantity")}
+            {...register("quantity", {
+              maxLength: { value: 50, message: "Too long" },
+            })}
           />
         </div>
 
@@ -197,6 +208,7 @@ export default function ContactForm() {
             {...register("message", {
               required: "Please describe your project",
               minLength: { value: 10, message: "Please give us a bit more detail" },
+              maxLength: { value: 5000, message: "Message is too long (max 5000 characters)" },
             })}
           />
           {errors.message && (
