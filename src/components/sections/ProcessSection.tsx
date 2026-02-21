@@ -29,7 +29,7 @@ export default function ProcessSection() {
                 <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] right-[-50%] h-px bg-white/10 z-0" />
               )}
 
-              <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors duration-200 z-10">
+              <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors duration-200 z-10 h-full">
                 {/* Step number */}
                 <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-4">
                   <span className="font-sora font-bold text-white text-lg">
