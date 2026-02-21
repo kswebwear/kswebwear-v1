@@ -26,7 +26,7 @@ export default function ProcessSection() {
             <div key={step.step} className="relative">
               {/* Connector line (desktop) */}
               {i < PROCESS_STEPS.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] right-[-50%] h-px bg-white/10 z-0" />
+                <div className="hidden lg:block absolute top-[3.25rem] left-full w-6 h-px bg-white/20 z-20" />
               )}
 
               <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors duration-200 z-10 h-full">
