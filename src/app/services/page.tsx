@@ -110,7 +110,63 @@ export default function ServicesPage() {
                 Message for details &rarr;
               </a>
             </p>
+            <p className="font-inter text-sm text-brand-muted">
+              Need ongoing staff shirts? Ask about repeat business pricing.
+            </p>
           </div>
+        </div>
+      </section>
+
+      {/* Business Printing */}
+      <section className="section-padding bg-white">
+        <div className="section-container">
+          <div className="max-w-3xl mx-auto">
+            <span className="tag">For Businesses</span>
+            <h2 className="font-sora font-bold text-3xl text-brand-navy mt-4 mb-4">
+              Business &amp; Staff Printing
+            </h2>
+            <p className="font-inter text-brand-muted text-base leading-relaxed mb-6">
+              We regularly print for local cafes, tradies, retail shops, and small
+              businesses across Western Sydney. Whether you need a one-off batch of
+              branded tees or ongoing staff uniforms, we keep it simple and affordable.
+            </p>
+            <ul className="flex flex-col gap-2 mb-6">
+              {["Logo tees & branded uniforms", "Recurring order support", "Consistent quality across batches", "Local pickup or delivery for larger orders"].map((item) => (
+                <li key={item} className="font-inter text-sm text-brand-navy flex items-center gap-2">
+                  <Check size={14} className="text-brand-red flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={waLink("business")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp text-sm px-6 py-3"
+            >
+              <MessageCircle size={18} />
+              Enquire About Business Orders
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Order Callout */}
+      <section className="bg-brand-navy py-6">
+        <div className="section-container flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <p className="font-sora font-semibold text-white text-sm">
+            Bulk &amp; Business Orders Welcome
+          </p>
+          <span className="hidden sm:block text-white/30">|</span>
+          <p className="font-inter text-white/60 text-sm">
+            Staff uniforms, branded merch, recurring orders
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-brand-red text-white font-sora font-semibold text-sm px-5 py-2 rounded-full hover:bg-red-600 transition-colors"
+          >
+            Enquire Now <ArrowRight size={14} />
+          </Link>
         </div>
       </section>
 

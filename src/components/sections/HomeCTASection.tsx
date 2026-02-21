@@ -34,6 +34,7 @@ export default function HomeCTASection() {
         </div>
 
         <p className="mt-8 text-white/60 font-inter text-sm">
+          Limited daily print capacity.{" "}
           Or email us at{" "}
           <a
             href="mailto:admin@kswebwear.com"

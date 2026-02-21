@@ -85,6 +85,9 @@ export default function ServicesPreview() {
               Message for details &rarr;
             </a>
           </p>
+          <p className="font-inter text-sm text-brand-muted text-center">
+            Need ongoing staff shirts? Ask about repeat business pricing.
+          </p>
         </div>
       </div>
     </section>

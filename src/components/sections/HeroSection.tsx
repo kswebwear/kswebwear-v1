@@ -37,8 +37,8 @@ export default function HeroSection() {
 
           {/* Sub-headline */}
           <p className="font-inter text-lg md:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
-            Birthdays, businesses &amp; group events. Minimum 2 shirts per order.
-            Fast pickup available.
+            Events, businesses &amp; group orders — printed locally with DTF technology.
+            Minimum 2 shirts. Fast local pickup available.
           </p>
 
           {/* CTAs */}
@@ -64,7 +64,7 @@ export default function HeroSection() {
 
           {/* Micro-trust */}
           <p className="mt-6 text-white/40 font-inter text-xs">
-            Local pickup &middot; Fast replies &middot; Transparent pricing
+            Order today &middot; Pick up locally in Tallawong &middot; Transparent pricing
           </p>
         </div>
       </div>

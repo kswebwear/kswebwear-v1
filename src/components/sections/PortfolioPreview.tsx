@@ -4,31 +4,31 @@ import { ArrowRight } from "lucide-react";
 const portfolioItems = [
   {
     id: 1,
-    title: "Birthday group order",
-    caption: "6 tees printed",
-    category: "Event",
-    color: "from-orange-400 to-red-500",
-  },
-  {
-    id: 2,
     title: "Restaurant Christmas staff shirts",
     caption: "14 pieces",
     category: "Business",
     color: "from-blue-500 to-indigo-600",
   },
   {
+    id: 2,
+    title: "Local trade team order",
+    caption: "12 logo tees",
+    category: "Business",
+    color: "from-slate-600 to-slate-800",
+  },
+  {
     id: 3,
+    title: "Birthday group order",
+    caption: "6 tees printed",
+    category: "Event",
+    color: "from-orange-400 to-red-500",
+  },
+  {
+    id: 4,
     title: "Family vacation matching tees",
     caption: "5 shirts",
     category: "Group",
     color: "from-pink-500 to-purple-600",
-  },
-  {
-    id: 4,
-    title: "Packed and ready for pickup",
-    caption: "Tallawong",
-    category: "Pickup",
-    color: "from-green-500 to-teal-600",
   },
 ];
 

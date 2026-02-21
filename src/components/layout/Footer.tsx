@@ -137,7 +137,16 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="section-container py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-gray-500 font-inter text-xs text-center md:text-left">
-            © {currentYear} {SITE_CONFIG.name}. All rights reserved. Tallawong, NSW Australia.
+            © {currentYear} {SITE_CONFIG.name}. All rights reserved.{" "}
+            <a
+              href="https://maps.google.com/?q=Tallawong+NSW+2762"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Tallawong, NSW Australia
+            </a>
+            .
           </p>
           <p className="text-gray-600 font-inter text-xs">
             Not a clothing store — 100% custom printing.

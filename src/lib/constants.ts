@@ -41,12 +41,12 @@ export const PRICING = {
   singleSide: [
     { qty: "2 shirts", price: "$28 each" },
     { qty: "3–9 shirts", price: "$26 each" },
-    { qty: "10+ shirts", price: "Message for event pricing" },
+    { qty: "10+ shirts", price: "Message us for 10+ shirt pricing" },
   ],
   doubleSide: [
     { qty: "2 shirts", price: "$35 each" },
     { qty: "3–9 shirts", price: "$32 each" },
-    { qty: "10+ shirts", price: "Message for event pricing" },
+    { qty: "10+ shirts", price: "Message us for 10+ shirt pricing" },
   ],
 };
 
@@ -65,8 +65,8 @@ export const WHO_WE_SERVE = [
     title: "Small Businesses",
     emoji: "\uD83C\uDFE2",
     description:
-      "Staff uniforms, logo tees, event merch, seasonal shirts.",
-    examples: ["Staff uniforms", "Branded merch", "Event giveaways"],
+      "Staff uniforms, logo tees, event merch, seasonal shirts. We work with local cafes, trades, and retail shops across Western Sydney.",
+    examples: ["Staff uniforms", "Branded merch", "Event giveaways", "Recurring orders"],
     cta: "business" as const,
   },
   {
@@ -143,6 +143,11 @@ export const FAQS = [
     question: "How do I pay?",
     answer:
       "We accept bank transfer and cash. Payment is required before printing begins. We'll confirm payment details when you get your quote.",
+  },
+  {
+    question: "Do you handle business or staff uniform orders?",
+    answer:
+      "Yes — we regularly print branded tees and staff uniforms for local businesses. Whether it's a one-off batch or a recurring order, just message us with your logo and quantities and we'll sort it out.",
   },
   {
     question: "How do I get started?",
