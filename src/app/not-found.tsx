@@ -4,13 +4,13 @@ import { waLink } from "@/lib/constants";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-brand-light flex items-center justify-center">
+    <div className="min-h-screen bg-brand-navy flex items-center justify-center">
       <div className="section-container text-center py-20">
-        <div className="text-8xl font-sora font-bold text-brand-navy/10 mb-4">404</div>
-        <h1 className="font-sora font-bold text-3xl text-brand-navy mb-4">
+        <div className="text-8xl font-sora font-bold text-white/10 mb-4">404</div>
+        <h1 className="font-sora font-bold text-3xl text-white mb-4">
           Page Not Found
         </h1>
-        <p className="font-inter text-brand-muted text-lg mb-8 max-w-md mx-auto">
+        <p className="font-inter text-white/60 text-lg mb-8 max-w-md mx-auto">
           This page doesn&apos;t exist. But your custom tee can. Let&apos;s get you to the
           right place.
         </p>

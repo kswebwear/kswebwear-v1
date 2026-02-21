@@ -14,7 +14,7 @@ export default function WhatsAppFAB() {
     >
       <MessageCircle size={26} className="group-hover:scale-110 transition-transform duration-200" />
       {/* Pulse ring */}
-      <span className="absolute inset-0 rounded-full bg-brand-whatsapp opacity-30 animate-ping" />
+      <span className="absolute inset-0 rounded-full bg-brand-whatsapp opacity-20 animate-pulse" />
     </a>
   );
 }
