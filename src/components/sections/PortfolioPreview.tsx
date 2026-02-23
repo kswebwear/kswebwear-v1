@@ -1,34 +1,49 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const portfolioItems = [
   {
     id: 1,
-    title: "Restaurant Christmas staff shirts",
-    caption: "14 pieces",
-    category: "Business",
-    color: "from-blue-500 to-indigo-600",
+    src: "/images/portfolio/family-vacation-black.jpeg",
+    title: "Family Vacation Matching Tees",
+    caption: "6 shirts — group print",
+    category: "Group",
   },
   {
     id: 2,
-    title: "Local trade team order",
-    caption: "12 logo tees",
+    src: "/images/portfolio/sports-numbered-blue.jpeg",
+    title: "Sports Team Numbered Jerseys",
+    caption: "Custom numbers — team order",
     category: "Business",
-    color: "from-slate-600 to-slate-800",
   },
   {
     id: 3,
-    title: "Birthday group order",
-    caption: "6 tees printed",
-    category: "Event",
-    color: "from-orange-400 to-red-500",
+    src: "/images/portfolio/infrastructure-team-shirts.jpg",
+    title: "Infrastructure Team Uniforms",
+    caption: "15+ pieces — bulk order",
+    category: "Business",
   },
   {
     id: 4,
-    title: "Family vacation matching tees",
-    caption: "5 shirts",
-    category: "Group",
-    color: "from-pink-500 to-purple-600",
+    src: "/images/portfolio/anime-one-piece.jpeg",
+    title: "Anime Custom Print Tees",
+    caption: "White & red — full-width print",
+    category: "Custom",
+  },
+  {
+    id: 5,
+    src: "/images/portfolio/super-dad-shirt.png",
+    title: "Super Dad Father's Day Tee",
+    caption: "Custom personalised gift",
+    category: "Event",
+  },
+  {
+    id: 6,
+    src: "/images/portfolio/they-call-him-og-stack.jpeg",
+    title: "They Call Him OG — Birthday",
+    caption: "6 tees — custom design",
+    category: "Event",
   },
 ];
 
@@ -56,14 +71,22 @@ export default function PortfolioPreview() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {portfolioItems.map((item) => (
-            <div
+            <Link
               key={item.id}
-              className={`relative aspect-square rounded-2xl bg-gradient-to-br ${item.color} overflow-hidden group cursor-pointer`}
+              href="/portfolio"
+              className="relative aspect-square rounded-2xl overflow-hidden group block"
             >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
+              <Image
+                src={item.src}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300" />
 
               {/* Category Badge */}
               <div className="absolute top-3 left-3">
@@ -72,8 +95,8 @@ export default function PortfolioPreview() {
                 </span>
               </div>
 
-              {/* Caption — always visible */}
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
+              {/* Caption */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
                 <p className="font-sora font-semibold text-white text-xs sm:text-sm">
                   {item.title}
                 </p>
@@ -81,7 +104,7 @@ export default function PortfolioPreview() {
                   {item.caption}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

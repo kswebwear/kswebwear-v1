@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MessageCircle, Instagram, ArrowRight } from "lucide-react";
+import { MessageCircle, Instagram, ArrowRight, Play } from "lucide-react";
 import { waLink, SITE_CONFIG } from "@/lib/constants";
+import PortfolioGrid from "@/components/sections/PortfolioGrid";
 
 export const metadata: Metadata = {
   title: "Our Work | KS Web & Wear Portfolio",
   description:
     "See real custom T-shirt printing orders from KS Web & Wear in Tallawong. Events, businesses, and group orders. Follow us on Instagram for fresh work.",
 };
-
-const categories = ["All", "Event", "Business", "Group"];
-
-const portfolioItems = [
-  { id: 1, title: "Birthday group order", desc: "6 tees printed", category: "Event", color: "from-orange-400 to-red-500" },
-  { id: 2, title: "Restaurant Christmas staff shirts", desc: "14 pieces", category: "Business", color: "from-blue-500 to-indigo-600" },
-  { id: 3, title: "Family vacation matching tees", desc: "5 shirts", category: "Group", color: "from-pink-500 to-purple-600" },
-  { id: 4, title: "Packed and ready for pickup", desc: "Tallawong", category: "Event", color: "from-green-500 to-teal-600" },
-  { id: 5, title: "Small business team uniforms", desc: "10 pieces", category: "Business", color: "from-gray-700 to-gray-900" },
-  { id: 6, title: "Weekend trip crew tees", desc: "8 shirts", category: "Group", color: "from-yellow-500 to-orange-500" },
-];
 
 export default function PortfolioPage() {
   return (
@@ -77,51 +67,67 @@ export default function PortfolioPage() {
         </div>
       </div>
 
+      {/* Featured Video */}
+      <section className="bg-brand-navy py-14">
+        <div className="section-container">
+          <div className="flex flex-col md:flex-row md:items-center gap-8">
+            {/* Video */}
+            <div className="flex-1 rounded-2xl overflow-hidden bg-black">
+              <video
+                src="/videos/portfolio-showcase.mp4"
+                controls
+                preload="none"
+                playsInline
+                className="w-full block"
+                aria-label="KS Web & Wear order showcase video"
+              />
+            </div>
+            {/* Text */}
+            <div className="flex-1 text-white">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-8 h-8 bg-brand-red/20 rounded-full flex items-center justify-center">
+                  <Play size={14} className="text-brand-red ml-0.5" />
+                </span>
+                <span className="font-sora font-semibold text-brand-red text-sm uppercase tracking-widest">
+                  Showcase
+                </span>
+              </div>
+              <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-4">
+                See the work in action
+              </h2>
+              <p className="font-inter text-white/70 text-base mb-6 leading-relaxed">
+                Every order is packed with care, labelled by size, and ready for
+                pickup from Tallawong. This is what a real KS Web &amp; Wear
+                order looks like.
+              </p>
+              <a
+                href={waLink("default")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp inline-flex"
+              >
+                <MessageCircle size={18} />
+                Start Your Order
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Portfolio Grid */}
       <section className="section-padding bg-brand-light">
         <div className="section-container">
-          {/* Category filters */}
-          <div className="flex flex-wrap gap-2 mb-10 justify-center">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`font-sora font-medium text-sm px-4 py-2 rounded-full transition-all duration-200 ${
-                  cat === "All"
-                    ? "bg-brand-navy text-white"
-                    : "bg-white border border-gray-200 text-brand-muted hover:border-brand-red hover:text-brand-red"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="text-center mb-10">
+            <span className="tag">All Orders</span>
+            <h2 className="font-sora font-bold text-3xl md:text-4xl text-brand-navy mt-4">
+              25+ Real Orders
+            </h2>
+            <p className="font-inter text-brand-muted mt-2">
+              Filter by type or browse the full collage below
+            </p>
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {portfolioItems.map((item) => (
-              <div
-                key={item.id}
-                className={`relative aspect-square rounded-2xl bg-gradient-to-br ${item.color} overflow-hidden group`}
-              >
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300" />
-
-                <div className="absolute top-3 left-3">
-                  <span className="text-xs font-sora font-semibold bg-white/20 text-white backdrop-blur-sm px-2.5 py-1 rounded-full">
-                    {item.category}
-                  </span>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                  <p className="font-sora font-semibold text-white text-sm">
-                    {item.title}
-                  </p>
-                  <p className="font-inter text-white/70 text-xs mt-0.5">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PortfolioGrid />
 
           {/* More on Instagram */}
           <div className="text-center mt-12">
@@ -161,7 +167,10 @@ export default function PortfolioPage() {
               <MessageCircle size={20} />
               Get a Quote on WhatsApp
             </a>
-            <Link href="/services" className="btn-outline-white px-8 py-4 justify-center">
+            <Link
+              href="/services"
+              className="btn-outline-white px-8 py-4 justify-center"
+            >
               See Our Services <ArrowRight size={16} />
             </Link>
           </div>
