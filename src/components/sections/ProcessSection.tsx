@@ -11,8 +11,7 @@ export default function ProcessSection() {
             How It Works
           </span>
           <h2 className="font-sora font-bold text-3xl md:text-4xl text-white mb-4">
-            From Idea to Pickup in{" "}
-            <span className="text-brand-red">4 Simple Steps</span>
+            3 Simple Steps
           </h2>
           <p className="font-inter text-white/60 text-lg max-w-lg mx-auto">
             No complicated forms. No confusing steps. Just WhatsApp us and
@@ -21,12 +20,12 @@ export default function ProcessSection() {
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
           {PROCESS_STEPS.map((step, i) => (
             <div key={step.step} className="relative">
               {/* Connector line (desktop) */}
               {i < PROCESS_STEPS.length - 1 && (
-                <div className="hidden lg:block absolute top-[3.25rem] left-full w-6 h-px bg-white/20 z-20" />
+                <div className="hidden sm:block absolute top-[3.25rem] left-full w-6 h-px bg-white/20 z-20" />
               )}
 
               <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors duration-200 z-10 h-full">

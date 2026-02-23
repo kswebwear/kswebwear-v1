@@ -22,8 +22,8 @@ export default function Home() {
       <TrustBar />
       <WhoWeServeSection />
       <ServicesPreview />
-      <ProcessSection />
       <PortfolioPreview />
+      <ProcessSection />
       <TestimonialsSection />
       <LocalTrustSection />
       <HomeCTASection />

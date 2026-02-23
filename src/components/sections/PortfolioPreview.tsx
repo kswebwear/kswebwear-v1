@@ -70,6 +70,11 @@ export default function PortfolioPreview() {
           </Link>
         </div>
 
+        {/* Context line */}
+        <p className="font-inter text-brand-muted text-sm italic text-center mb-6">
+          Real orders printed for local customers.
+        </p>
+
         {/* Portfolio Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {portfolioItems.map((item) => (

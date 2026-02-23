@@ -37,7 +37,7 @@ export default function WhoWeServeSection() {
               </p>
 
               {/* Examples */}
-              <ul className="flex flex-col gap-1.5 mb-6">
+              <ul className="flex flex-col gap-1.5 mb-4">
                 {segment.examples.map((ex) => (
                   <li
                     key={ex}
@@ -48,6 +48,13 @@ export default function WhoWeServeSection() {
                   </li>
                 ))}
               </ul>
+
+              {/* Reorder note (businesses only) */}
+              {"note" in segment && segment.note && (
+                <p className="font-inter text-xs text-brand-navy font-semibold bg-brand-red/8 border border-brand-red/20 rounded-lg px-3 py-2 mb-4">
+                  {segment.note}
+                </p>
+              )}
 
               {/* CTA */}
               <a

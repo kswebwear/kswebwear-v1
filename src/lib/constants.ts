@@ -67,6 +67,7 @@ export const WHO_WE_SERVE = [
     description:
       "Staff uniforms, logo tees, event merch, seasonal shirts. We work with local cafes, trades, and retail shops across Western Sydney.",
     examples: ["Staff uniforms", "Branded merch", "Event giveaways", "Recurring orders"],
+    note: "We store your logo for easy reorders anytime.",
     cta: "business" as const,
   },
   {
@@ -83,23 +84,18 @@ export const WHO_WE_SERVE = [
 export const PROCESS_STEPS = [
   {
     step: "01",
-    title: "Message Us",
-    description: "Send us a WhatsApp with your idea, design, or just a rough brief.",
+    title: "Send Your Design",
+    description: "WhatsApp us your design, idea, or even just a rough brief. We'll take it from there.",
   },
   {
     step: "02",
-    title: "Get Your Quote",
-    description: "We'll come back with pricing — usually same day.",
+    title: "Approve the Preview",
+    description: "We'll send a proof before printing. Nothing goes to print until you're happy.",
   },
   {
     step: "03",
-    title: "Approve Proof",
-    description: "We'll send a design proof before printing. You approve it.",
-  },
-  {
-    step: "04",
-    title: "Pickup in Tallawong",
-    description: "Ready in 2–4 business days. Pickup at Tallawong or local delivery.",
+    title: "Print & Pickup",
+    description: "Ready in 2–4 business days. Pickup from Tallawong or ask about delivery.",
   },
 ];
 

@@ -26,11 +26,24 @@ export default function Footer() {
               alt={SITE_CONFIG.name}
               width={140}
               height={48}
-              className="h-12 w-auto object-contain mb-4 brightness-0 invert"
+              className="h-12 w-auto object-contain mb-3 brightness-0 invert"
             />
-            <p className="text-gray-400 font-inter text-sm leading-relaxed mb-6">
-              Custom T-shirt printing in Tallawong. Events, businesses
-              & group orders. Minimum 2 shirts per order.
+            <p className="text-white font-sora font-semibold text-sm mb-1">
+              Custom T-Shirt Printing – Tallawong
+            </p>
+            <p className="text-gray-400 font-inter text-xs mb-1">
+              Minimum 2 shirts per order
+            </p>
+            <p className="text-gray-500 font-inter text-xs mb-6">
+              WhatsApp:{" "}
+              <a
+                href={`https://wa.me/${SITE_CONFIG.whatsapp.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-whatsapp hover:underline"
+              >
+                {SITE_CONFIG.whatsapp}
+              </a>
             </p>
             {/* Social */}
             <div className="flex gap-4">
