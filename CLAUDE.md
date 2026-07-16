@@ -1,5 +1,13 @@
 # KS Web & Wear V1 — Design Decisions & Guidelines
 
+## Knowledge Base
+Path: ~/second-brain/wiki
+At session start:
+1. Read wiki/hot.md
+2. Read wiki/index.md  
+3. Pull relevant domain pages before asking me for context
+My decisions, patterns, bugs solved, and preferences are there.
+
 ## Business Rules (V1 Locked)
 
 - **Minimum order**: 2 shirts per order. Mix sizes allowed. Best value from 3+.
