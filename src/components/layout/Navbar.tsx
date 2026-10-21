@@ -66,6 +66,17 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href={SITE_CONFIG.designerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={clsx(
+                "font-inter font-medium hover:text-brand-red transition-colors duration-200 text-sm",
+                scrolled ? "text-brand-navy" : "text-white"
+              )}
+            >
+              Design Your Shirt
+            </a>
           </div>
 
           {/* Desktop CTA */}
@@ -118,6 +129,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href={SITE_CONFIG.designerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="font-inter font-medium text-brand-navy hover:text-brand-red hover:bg-gray-50 px-4 py-3 rounded-xl transition-all duration-200 text-base"
+            >
+              Design Your Shirt
+            </a>
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
               <Link
                 href="/contact"

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MessageCircle, ArrowRight, MapPin } from "lucide-react";
-import { waLink } from "@/lib/constants";
+import { SITE_CONFIG, waLink } from "@/lib/constants";
 
 export default function HeroSection() {
   return (
@@ -60,6 +60,16 @@ export default function HeroSection() {
               View Recent Work
               <ArrowRight size={18} />
             </Link>
+
+            <a
+              href={SITE_CONFIG.designerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-white text-base px-8 py-4"
+            >
+              Design Your Shirt
+              <ArrowRight size={18} />
+            </a>
           </div>
 
           {/* Micro-trust */}
