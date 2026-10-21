@@ -10,8 +10,7 @@ export const SITE_CONFIG = {
   instagram: "https://instagram.com/kswebwear",
   instagramHandle: "@kswebwear",
   facebook: "https://facebook.com/kswebwear",
-  logoUrl:
-    "https://kswebwear.com.au/cdn/shop/files/Logo.png?v=1710504103&width=600",
+  logoUrl: "/images/logo.png",
   turnaround: "2–4 Business Days",
   minimumOrder: "Minimum 2 shirts per order",
   designerUrl: "https://kswebwear-designer.vercel.app",

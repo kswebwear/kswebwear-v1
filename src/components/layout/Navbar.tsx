@@ -47,7 +47,7 @@ export default function Navbar() {
               alt={SITE_CONFIG.name}
               width={140}
               height={48}
-              className="h-10 md:h-12 w-auto object-contain"
+              className={clsx("h-10 md:h-12 w-auto object-contain", !scrolled && "invert")}
               priority
             />
           </Link>
