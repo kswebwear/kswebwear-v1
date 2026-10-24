@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
   logoUrl: "/images/logo.png",
   turnaround: "2–4 Business Days",
   minimumOrder: "Minimum 2 shirts per order",
-  designerUrl: "https://kswebwear-designer.vercel.app",
+  designerUrl: "https://design.kswebwear.com.au",
 };
 
 export const WHATSAPP_MESSAGES = {
