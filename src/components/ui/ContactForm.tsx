@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { MessageCircle, Send, CheckCircle } from "lucide-react";
+import { Send } from "lucide-react";
+import Button from "@/components/ks/Button";
 import { SITE_CONFIG, waLink } from "@/lib/constants";
 
 type FormData = {
@@ -55,56 +56,43 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="card text-center py-12">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle size={32} className="text-brand-whatsapp" />
-        </div>
-        <h3 className="font-sora font-bold text-xl text-brand-navy mb-2">
-          WhatsApp Opened!
-        </h3>
-        <p className="font-inter text-brand-muted text-sm mb-6">
-          Your message has been pre-filled in WhatsApp. Just hit send and
-          we&apos;ll get back to you shortly.
+      <div role="status" className="flex flex-col items-start gap-4 border border-ks-line bg-ks-paper p-6 md:p-8">
+        <h3 className="ks-title text-ks-h3">WhatsApp opened.</h3>
+        <p className="text-base leading-[1.55] text-ks-body">
+          Your message has been pre-filled in WhatsApp. Just hit send and we&apos;ll get back to you shortly.
         </p>
-        <button
-          onClick={() => setSubmitted(false)}
-          className="btn-outline text-sm"
-        >
-          Send Another Enquiry
-        </button>
+        <Button variant="secondary" onClick={() => setSubmitted(false)}>
+          Send another enquiry
+        </Button>
       </div>
     );
   }
 
   return (
-    <div className="card">
-      {/* WhatsApp prompt */}
-      <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-        <MessageCircle size={18} className="text-brand-whatsapp mt-0.5 flex-shrink-0" />
-        <p className="font-inter text-sm text-gray-700">
-          <span className="font-semibold">Prefer to chat directly?</span>{" "}
-          <a
-            href={waLink("default")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-brand-whatsapp font-semibold hover:underline"
-          >
-            Message us on WhatsApp
-          </a>{" "}
-          — we reply same day.
-        </p>
-      </div>
+    <div className="border border-ks-line bg-ks-paper p-6 md:p-8">
+      <p className="mb-6 border-b border-ks-line pb-6 text-base text-ks-body">
+        <span className="font-semibold text-ks-ink">Prefer to chat directly?</span>{" "}
+        <a
+          href={waLink("default")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold text-ks-accent underline underline-offset-4 hover:text-ks-ink"
+        >
+          Message us on WhatsApp
+        </a>
+        . We reply same day.
+      </p>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
         {/* Name */}
         <div>
-          <label className="font-inter font-medium text-sm text-brand-navy block mb-1.5">
-            Full Name <span className="text-brand-red">*</span>
+          <label className="ks-label mb-2 block text-ks-muted">
+            Full Name <span className="text-ks-accent">*</span>
           </label>
           <input
             type="text"
             placeholder="Your name"
-            className={`form-input ${errors.name ? "border-brand-red" : ""}`}
+            className={`ks-input ${errors.name ? "border-ks-accent" : ""}`}
             {...register("name", {
               required: "Name is required",
               minLength: { value: 2, message: "Name is too short" },
@@ -112,20 +100,20 @@ export default function ContactForm() {
             })}
           />
           {errors.name && (
-            <p className="text-brand-red text-xs mt-1">{errors.name.message}</p>
+            <p className="mt-1.5 text-sm text-ks-accent">{errors.name.message}</p>
           )}
         </div>
 
         {/* Email + Phone */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="font-inter font-medium text-sm text-brand-navy block mb-1.5">
-              Email <span className="text-brand-red">*</span>
+            <label className="ks-label mb-2 block text-ks-muted">
+              Email <span className="text-ks-accent">*</span>
             </label>
             <input
               type="email"
               placeholder="you@email.com"
-              className={`form-input ${errors.email ? "border-brand-red" : ""}`}
+              className={`ks-input ${errors.email ? "border-ks-accent" : ""}`}
               {...register("email", {
                 required: "Email is required",
                 maxLength: { value: 254, message: "Email is too long" },
@@ -136,17 +124,17 @@ export default function ContactForm() {
               })}
             />
             {errors.email && (
-              <p className="text-brand-red text-xs mt-1">{errors.email.message}</p>
+              <p className="mt-1.5 text-sm text-ks-accent">{errors.email.message}</p>
             )}
           </div>
           <div>
-            <label className="font-inter font-medium text-sm text-brand-navy block mb-1.5">
+            <label className="ks-label mb-2 block text-ks-muted">
               Phone (optional)
             </label>
             <input
               type="tel"
               placeholder="04XX XXX XXX"
-              className="form-input"
+              className="ks-input"
               {...register("phone", {
                 maxLength: { value: 20, message: "Phone number is too long" },
               })}
@@ -156,11 +144,11 @@ export default function ContactForm() {
 
         {/* Service */}
         <div>
-          <label className="font-inter font-medium text-sm text-brand-navy block mb-1.5">
-            What do you need? <span className="text-brand-red">*</span>
+          <label className="ks-label mb-2 block text-ks-muted">
+            What do you need? <span className="text-ks-accent">*</span>
           </label>
           <select
-            className={`form-input ${errors.service ? "border-brand-red" : ""}`}
+            className={`ks-input ${errors.service ? "border-ks-accent" : ""}`}
             {...register("service", { required: "Please select a service" })}
             defaultValue=""
           >
@@ -174,19 +162,19 @@ export default function ContactForm() {
             ))}
           </select>
           {errors.service && (
-            <p className="text-brand-red text-xs mt-1">{errors.service.message}</p>
+            <p className="mt-1.5 text-sm text-ks-accent">{errors.service.message}</p>
           )}
         </div>
 
         {/* Quantity */}
         <div>
-          <label className="font-inter font-medium text-sm text-brand-navy block mb-1.5">
+          <label className="ks-label mb-2 block text-ks-muted">
             Approximate Quantity
           </label>
           <input
             type="text"
             placeholder="e.g. 1, 10, 25, not sure yet..."
-            className="form-input"
+            className="ks-input"
             {...register("quantity", {
               maxLength: { value: 50, message: "Too long" },
             })}
@@ -195,13 +183,13 @@ export default function ContactForm() {
 
         {/* Message */}
         <div>
-          <label className="font-inter font-medium text-sm text-brand-navy block mb-1.5">
-            Tell us about your project <span className="text-brand-red">*</span>
+          <label className="ks-label mb-2 block text-ks-muted">
+            Tell us about your project <span className="text-ks-accent">*</span>
           </label>
           <textarea
             rows={4}
             placeholder="Describe your design idea, shirt colour, any deadline, or just say hi..."
-            className={`form-input resize-none ${errors.message ? "border-brand-red" : ""}`}
+            className={`ks-input resize-none ${errors.message ? "border-ks-accent" : ""}`}
             {...register("message", {
               required: "Please describe your project",
               minLength: { value: 10, message: "Please give us a bit more detail" },
@@ -209,25 +197,25 @@ export default function ContactForm() {
             })}
           />
           {errors.message && (
-            <p className="text-brand-red text-xs mt-1">{errors.message.message}</p>
+            <p className="mt-1.5 text-sm text-ks-accent">{errors.message.message}</p>
           )}
         </div>
 
         {/* Disclaimer */}
-        <p className="font-inter text-brand-muted text-xs">
+        <p className="text-sm text-ks-body">
           Submitting this form will open WhatsApp with your message pre-filled.
           We&apos;ll reply same day (Mon–Sat).
         </p>
 
         {/* Submit */}
-        <button
+        <Button
           type="submit"
-          disabled={isSubmitting}
-          className="btn-whatsapp justify-center py-4 disabled:opacity-60 disabled:cursor-not-allowed"
+          size="lg"
+          icon={<Send size={18} aria-hidden="true" />}
+          className={isSubmitting ? "pointer-events-none opacity-60" : undefined}
         >
-          <Send size={18} />
           {isSubmitting ? "Opening WhatsApp..." : "Send via WhatsApp"}
-        </button>
+        </Button>
       </form>
     </div>
   );

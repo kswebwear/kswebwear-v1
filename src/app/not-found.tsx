@@ -1,35 +1,21 @@
-import Link from "next/link";
-import { MessageCircle, Home } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { waLink } from "@/lib/constants";
+import Button from "@/components/ks/Button";
+import PageHero from "@/components/ks/PageHero";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-brand-navy flex items-center justify-center">
-      <div className="section-container text-center py-20">
-        <div className="text-8xl font-sora font-bold text-white/10 mb-4">404</div>
-        <h1 className="font-sora font-bold text-3xl text-white mb-4">
-          Page Not Found
-        </h1>
-        <p className="font-inter text-white/60 text-lg mb-8 max-w-md mx-auto">
-          This page doesn&apos;t exist. But your custom tee can. Let&apos;s get you to the
-          right place.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/" className="btn-primary px-8 py-4 justify-center">
-            <Home size={18} />
-            Back to Home
-          </Link>
-          <a
-            href={waLink("default")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-whatsapp px-8 py-4"
-          >
-            <MessageCircle size={18} />
-            Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
+    <PageHero
+      eyebrow="404"
+      title="Page not found."
+      intro="This page doesn't exist. But your custom tee can. Let's get you to the right place."
+    >
+      <Button href="/" size="lg">
+        Back to home
+      </Button>
+      <Button href={waLink("default")} variant="secondary" size="lg" icon={<MessageCircle size={20} aria-hidden="true" />}>
+        Chat on WhatsApp
+      </Button>
+    </PageHero>
   );
 }

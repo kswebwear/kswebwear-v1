@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { MessageCircle, Check, ArrowRight } from "lucide-react";
-import { PRICING, waLink } from "@/lib/constants";
+import { Check, MessageCircle } from "lucide-react";
+import { PRICE_ROWS, waLink } from "@/lib/constants";
+import Button from "@/components/ks/Button";
+import CtaBand from "@/components/ks/CtaBand";
+import Eyebrow from "@/components/ks/Eyebrow";
+import PageHero from "@/components/ks/PageHero";
+import PriceTable from "@/components/ks/PriceTable";
+import SectionHeader from "@/components/ks/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Services & Pricing | Custom DTF T-Shirt Printing",
@@ -9,268 +14,136 @@ export const metadata: Metadata = {
     "Custom DTF printing for events, businesses & groups. Minimum 2 shirts per order. Single-side from $26, double-side from $32. Tallawong pickup.",
 };
 
+const businessPoints = [
+  "Logo tees & branded uniforms",
+  "Recurring order support",
+  "Consistent quality across batches",
+  "Local pickup or delivery for larger orders",
+];
+
+const dtfPoints = [
+  "Full colour, no extra cost",
+  "Works on any fabric colour",
+  "Wash-resistant & durable",
+  "Great for complex designs",
+];
+
+const toSend = [
+  {
+    title: "Your design file",
+    desc: "PNG, PDF, or vector (AI/EPS). High res = best result. No design? We can help with basic layout.",
+  },
+  { title: "Garment details", desc: "Shirt colour and size breakdown for your order." },
+  { title: "Quantity", desc: "Minimum 2 shirts per order. Best value starts from 3+ shirts." },
+  { title: "Placement", desc: "Front, back, or both? Just describe it or sketch it." },
+];
+
+function CheckList({ items, onDark = false }: { items: string[]; onDark?: boolean }) {
+  return (
+    <ul className="m-0 flex list-none flex-col gap-3 p-0">
+      {items.map((item) => (
+        <li key={item} className={`flex items-center gap-3 text-base ${onDark ? "text-ks-on-dark" : "text-ks-body"}`}>
+          <Check size={16} aria-hidden="true" className={onDark ? "text-ks-accent-on-dark" : "text-ks-accent"} />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-brand-navy pt-32 pb-20">
-        <div className="section-container text-center">
-          <span className="inline-block bg-brand-red/20 text-brand-red font-sora font-semibold text-xs uppercase tracking-widest px-3 py-1 rounded-full mb-6">
-            Our Services
-          </span>
-          <h1 className="font-sora font-bold text-4xl md:text-5xl text-white mb-6">
-            Custom Printing.{" "}
-            <span className="text-brand-red">Real Quality.</span>
-          </h1>
-          <p className="font-inter text-white/70 text-xl max-w-2xl mx-auto mb-8">
-            We&apos;re a local print shop in Tallawong. Every order
-            is custom-printed to your brief with full-colour DTF technology.
-            Minimum 2 shirts per order.
-          </p>
-          <a
-            href={waLink("default")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-whatsapp text-base px-8 py-4"
-          >
-            <MessageCircle size={20} />
-            Get a Quote on WhatsApp
-          </a>
+      <PageHero
+        eyebrow="Our services"
+        title="Custom printing. Real quality."
+        intro="We're a local print shop in Tallawong. Every order is custom-printed to your brief with full-colour DTF technology. Minimum 2 shirts per order."
+      >
+        <Button href={waLink("default")} size="lg" icon={<MessageCircle size={20} aria-hidden="true" />}>
+          Get a quote on WhatsApp
+        </Button>
+      </PageHero>
+
+      <section className="bg-ks-fog">
+        <div className="ks-container ks-section-y flex flex-col gap-10">
+          <SectionHeader
+            eyebrow="Pricing"
+            title="Clear pricing, no surprises."
+            aside={
+              <p className="max-w-[26em] text-base leading-normal text-ks-body">
+                Includes print setup and small-batch production. Need ongoing staff shirts? Ask about repeat business
+                pricing.
+              </p>
+            }
+          />
+          <PriceTable rows={PRICE_ROWS} bulkLabel="Message us for a bulk price" bulkHref={waLink("bulk")} />
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="section-padding bg-brand-light">
-        <div className="section-container">
-          <div className="text-center mb-12">
-            <span className="tag">Transparent Pricing</span>
-            <h2 className="font-sora font-bold text-3xl md:text-4xl text-brand-navy mt-4">
-              Clear Pricing, No Surprises
-            </h2>
+      <section>
+        <div className="ks-container ks-section-y flex flex-wrap gap-x-20 gap-y-10">
+          <div className="flex flex-[1_1_17rem] flex-col gap-3">
+            <Eyebrow>For businesses</Eyebrow>
+            <h2 className="ks-display text-ks-h2 leading-none tracking-[-0.02em]">Business &amp; staff printing.</h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {/* Single-Side */}
-            <div className="card">
-              <h3 className="font-sora font-bold text-xl text-brand-navy mb-5">
-                Single-Side Printing
-              </h3>
-              <div className="flex flex-col gap-3">
-                {PRICING.singleSide.map((tier) => (
-                  <div
-                    key={tier.qty}
-                    className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
-                  >
-                    <span className="font-inter text-sm text-brand-navy font-medium">
-                      {tier.qty}
-                    </span>
-                    <span className="font-sora font-semibold text-sm text-brand-red">
-                      {tier.price}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Double-Side */}
-            <div className="card">
-              <h3 className="font-sora font-bold text-xl text-brand-navy mb-5">
-                Double-Side Printing
-              </h3>
-              <div className="flex flex-col gap-3">
-                {PRICING.doubleSide.map((tier) => (
-                  <div
-                    key={tier.qty}
-                    className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
-                  >
-                    <span className="font-inter text-sm text-brand-navy font-medium">
-                      {tier.qty}
-                    </span>
-                    <span className="font-sora font-semibold text-sm text-brand-red">
-                      {tier.price}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 space-y-2 text-center">
-            <p className="font-inter text-sm text-brand-muted">
-              Includes print setup &amp; small-batch production.
+          <div className="flex min-w-0 flex-[999_1_35rem] flex-col gap-6">
+            <p className="max-w-[34em] text-[19px] leading-[1.55] text-ks-body">
+              We regularly print for local cafes, tradies, retail shops, and small businesses across Western Sydney.
+              Whether you need a one-off batch of branded tees or ongoing staff uniforms, we keep it simple and
+              affordable.
             </p>
-            <p className="font-inter text-sm text-brand-muted">
-              Bulk pricing available for business and event orders.{" "}
-              <a
-                href={waLink("bulk")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-red font-semibold hover:underline"
-              >
-                Message for details &rarr;
-              </a>
-            </p>
-            <p className="font-inter text-sm text-brand-muted">
-              Need ongoing staff shirts? Ask about repeat business pricing.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Printing */}
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto">
-            <span className="tag">For Businesses</span>
-            <h2 className="font-sora font-bold text-3xl text-brand-navy mt-4 mb-4">
-              Business &amp; Staff Printing
-            </h2>
-            <p className="font-inter text-brand-muted text-base leading-relaxed mb-6">
-              We regularly print for local cafes, tradies, retail shops, and small
-              businesses across Western Sydney. Whether you need a one-off batch of
-              branded tees or ongoing staff uniforms, we keep it simple and affordable.
-            </p>
-            <ul className="flex flex-col gap-2 mb-6">
-              {["Logo tees & branded uniforms", "Recurring order support", "Consistent quality across batches", "Local pickup or delivery for larger orders"].map((item) => (
-                <li key={item} className="font-inter text-sm text-brand-navy flex items-center gap-2">
-                  <Check size={14} className="text-brand-red flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={waLink("business")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp text-sm px-6 py-3"
-            >
-              <MessageCircle size={18} />
-              Enquire About Business Orders
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Order Callout */}
-      <section className="bg-brand-navy py-6">
-        <div className="section-container flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-          <p className="font-sora font-semibold text-white text-sm">
-            Bulk &amp; Business Orders Welcome
-          </p>
-          <span className="hidden sm:block text-white/30">|</span>
-          <p className="font-inter text-white/60 text-sm">
-            Staff uniforms, branded merch, recurring orders
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-brand-red text-white font-sora font-semibold text-sm px-5 py-2 rounded-full hover:bg-red-600 transition-colors"
-          >
-            Enquire Now <ArrowRight size={14} />
-          </Link>
-        </div>
-      </section>
-
-      {/* DTF explanation */}
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="bg-brand-navy rounded-2xl p-6 md:p-8">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="flex-1">
-                <h3 className="font-sora font-bold text-white text-xl mb-3">
-                  What is DTF Printing?
-                </h3>
-                <p className="font-inter text-white/70 text-sm leading-relaxed">
-                  DTF (Direct to Film) is a modern printing method that produces
-                  vibrant, full-colour prints on virtually any fabric colour —
-                  including black and dark shirts. It&apos;s durable, wash-resistant,
-                  and works on cotton, polyester, and blends. Perfect for custom
-                  designs with multiple colours, gradients, and fine details.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 flex-shrink-0">
-                {["Full colour — no extra cost", "Works on any fabric colour", "Wash-resistant & durable", "Great for complex designs"].map((f) => (
-                  <div key={f} className="flex items-center gap-2 text-white/70 text-sm font-inter">
-                    <Check size={14} className="text-brand-red" />
-                    {f}
-                  </div>
-                ))}
-              </div>
+            <CheckList items={businessPoints} />
+            <div>
+              <Button href={waLink("business")} variant="secondary">
+                Enquire about business orders
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What to send us */}
-      <section className="section-padding bg-brand-light">
-        <div className="section-container">
-          <div className="text-center mb-10">
-            <span className="tag">Getting Started</span>
-            <h2 className="font-sora font-bold text-3xl text-brand-navy mt-4">
-              What to Send Us
-            </h2>
+      <section className="bg-ks-ink text-ks-on-dark">
+        <div className="ks-container ks-section-y flex flex-wrap gap-x-20 gap-y-10">
+          <div className="flex flex-[1_1_17rem] flex-col gap-3">
+            <Eyebrow onDark>DTF printing</Eyebrow>
+            <h2 className="ks-display text-ks-h2 leading-none tracking-[-0.02em]">What is DTF?</h2>
           </div>
-
-          <div className="max-w-2xl mx-auto">
-            <div className="flex flex-col gap-4">
-              {[
-                { num: "1", title: "Your design file", desc: "PNG, PDF, or vector (AI/EPS). High res = best result. No design? We can help with basic layout." },
-                { num: "2", title: "Garment details", desc: "Shirt colour and size breakdown for your order." },
-                { num: "3", title: "Quantity", desc: "Minimum 2 shirts per order. Best value starts from 3+ shirts." },
-                { num: "4", title: "Placement", desc: "Front, back, or both? Just describe it or sketch it." },
-              ].map((item) => (
-                <div key={item.num} className="card flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="font-sora font-bold text-white">{item.num}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-sora font-semibold text-brand-navy mb-1">{item.title}</h4>
-                    <p className="font-inter text-brand-muted text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-8">
-              <a
-                href={waLink("default")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp text-base px-8 py-4"
-              >
-                <MessageCircle size={20} />
-                Send Us Your Brief on WhatsApp
-              </a>
-            </div>
+          <div className="flex min-w-0 flex-[999_1_35rem] flex-col gap-6">
+            <p className="max-w-[34em] text-[19px] leading-[1.55]">
+              DTF (Direct to Film) is a modern printing method that produces vibrant, full-colour prints on virtually any
+              fabric colour, including black and dark shirts. It&apos;s durable, wash-resistant, and works on cotton,
+              polyester, and blends. Perfect for custom designs with multiple colours, gradients, and fine details.
+            </p>
+            <CheckList items={dtfPoints} onDark />
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-brand-red section-padding">
-        <div className="section-container text-center">
-          <h2 className="font-sora font-bold text-3xl md:text-4xl text-white mb-4">
-            Not Sure Where to Start?
-          </h2>
-          <p className="font-inter text-white/80 text-lg mb-8 max-w-md mx-auto">
-            Just WhatsApp us with your idea. No fuss — we&apos;ll guide you
-            from there.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={waLink("default")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-brand-red font-sora font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition-all"
-            >
-              <MessageCircle size={20} />
-              Chat on WhatsApp
-            </a>
-            <Link href="/faq" className="btn-outline-white px-8 py-4 justify-center">
-              Read the FAQ <ArrowRight size={16} />
-            </Link>
-          </div>
+      <section>
+        <div className="ks-container ks-section-y flex flex-col gap-10">
+          <SectionHeader eyebrow="Getting started" title="What to send us." />
+          <ol className="m-0 grid list-none grid-cols-1 gap-10 p-0 md:grid-cols-2">
+            {toSend.map((item, i) => (
+              <li key={item.title} className="flex flex-col gap-3 border-t border-ks-line pt-6">
+                <span className="font-ks-mono text-sm text-ks-accent">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="ks-title text-2xl">{item.title}</h3>
+                <p className="text-base leading-[1.55] text-ks-body">{item.desc}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
+
+      <CtaBand title="Not sure where to start?">
+        <div className="flex flex-wrap gap-3">
+          <Button href={waLink("default")} variant="ink" size="lg" icon={<MessageCircle size={20} aria-hidden="true" />}>
+            Chat on WhatsApp
+          </Button>
+          <Button href="/faq" variant="ink" size="lg">
+            Read the FAQ
+          </Button>
+        </div>
+      </CtaBand>
     </>
   );
 }

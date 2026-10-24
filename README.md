@@ -1,4 +1,4 @@
-# KS Web & Wear — Custom T-Shirt Printing Website
+# KS Web & Wear - Custom T-Shirt Printing Website
 
 Lead-generation website for KS Web & Wear, a local custom DTF printing business in Tallawong, NSW, Australia.
 
@@ -47,7 +47,7 @@ npm start
 
 ## Deployment
 
-Deploy to Vercel — connect GitHub repo, set domain to `kswebwear.com.au`.
+Deploy to Vercel - connect GitHub repo, set domain to `kswebwear.com.au`.
 
 ## Portfolio Photos
 

@@ -14,6 +14,9 @@ export const SITE_CONFIG = {
   turnaround: "2–4 Business Days",
   minimumOrder: "Minimum 2 shirts per order",
   designerUrl: "https://design.kswebwear.com.au",
+  legalName: "Sindhu Karteek Web and Wear Pty Ltd",
+  // Set once the ABN is confirmed; the footer hides the ABN line while this is empty.
+  abn: "",
 };
 
 export const WHATSAPP_MESSAGES = {
@@ -133,7 +136,7 @@ export const FAQS = [
   {
     question: "What printing method do you use?",
     answer:
-      "We use DTF (Direct to Film) printing — vibrant, durable, and works on virtually any fabric colour. Full colour with no extra charge.",
+      "We use DTF (Direct to Film) printing: vibrant, durable, and works on virtually any fabric colour. Full colour with no extra charge.",
   },
   {
     question: "How do I pay?",
@@ -143,11 +146,65 @@ export const FAQS = [
   {
     question: "Do you handle business or staff uniform orders?",
     answer:
-      "Yes — we regularly print branded tees and staff uniforms for local businesses. Whether it's a one-off batch or a recurring order, just message us with your logo and quantities and we'll sort it out.",
+      "Yes, we regularly print branded tees and staff uniforms for local businesses. Whether it's a one-off batch or a recurring order, just message us with your logo and quantities and we'll sort it out.",
   },
   {
     question: "How do I get started?",
     answer:
-      "Just message us on WhatsApp! Send your idea, design, or any questions — we respond fast and make the process simple.",
+      "Just message us on WhatsApp! Send your idea, design, or any questions. We respond fast and make the process simple.",
+  },
+];
+
+export const PRICE_ROWS = [
+  { qty: "2 shirts", oneSide: "$28", bothSides: "$35" },
+  { qty: "3–9 shirts", oneSide: "$26", bothSides: "$32" },
+];
+
+export const HOME_WORK = [
+  { src: "/images/portfolio/family-vacation-black.jpeg", title: "Family vacation tees", meta: "6 shirts" },
+  { src: "/images/portfolio/sports-numbered-blue.jpeg", title: "Numbered team jerseys", meta: "Team order" },
+  { src: "/images/portfolio/infrastructure-team-shirts.jpg", title: "Infrastructure crew uniforms", meta: "15+ shirts" },
+  { src: "/images/portfolio/anime-one-piece.jpeg", title: "Anime full-front print", meta: "Custom" },
+  { src: "/images/portfolio/super-dad-shirt.png", title: "Super Dad - Father’s Day", meta: "Gift" },
+  { src: "/images/portfolio/they-call-him-og-stack.jpeg", title: "They Call Him OG - birthday", meta: "6 shirts" },
+];
+
+export const HOME_STEPS = [
+  { title: "Send your idea", body: "A logo, a photo, a sketch or just a sentence. Tell us the quantity and sizes." },
+  { title: "Approve the proof", body: "We send a mock-up of your shirt with the price. Nothing prints until you say yes." },
+  { title: "Collect your shirts", body: "Ready in 2–4 business days. Pick up in Tallawong, or ask about delivery." },
+];
+
+export const HOME_AUDIENCES = [
+  { title: "Events", body: "Birthdays, holidays, family trips, Christmas parties. Matching shirts for the whole crew." },
+  {
+    title: "Small businesses",
+    body: "Staff uniforms and logo tees for cafés, trades and shops. We keep your logo on file, so reordering is one message.",
+  },
+  { title: "Teams & clubs", body: "Numbered jerseys, club merch and trip tees, with names and numbers per shirt." },
+];
+
+export const HOME_FAQS = [
+  {
+    question: "What is DTF printing?",
+    answer:
+      "Direct-to-film: your design is printed onto a film and heat-pressed onto the shirt. It handles full colour, photos and fine detail, and suits small runs because there are no screens to set up.",
+  },
+  {
+    question: "What file should I send?",
+    answer:
+      "A PNG or PDF works best, but a photo or sketch is fine. If it needs tidying up, we will tell you before anything prints.",
+  },
+  {
+    question: "Can I mix sizes in one order?",
+    answer: "Yes. Tell us how many of each size when you send your design.",
+  },
+  {
+    question: "Can I bring my own shirts?",
+    answer: "We print on our supplied shirts only, to keep print quality and durability consistent.",
+  },
+  {
+    question: "Do you deliver?",
+    answer: "Pickup is from Tallawong, NSW. Delivery is available for larger orders. Message us for a price.",
   },
 ];

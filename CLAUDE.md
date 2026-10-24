@@ -1,4 +1,4 @@
-# KS Web & Wear V1 — Design Decisions & Guidelines
+# KS Web & Wear V1 - Design Decisions & Guidelines
 
 ## Knowledge Base
 Path: ~/second-brain/wiki
@@ -21,23 +21,23 @@ My decisions, patterns, bugs solved, and preferences are there.
 
 ## Target Audiences (No Gym Claims)
 
-1. Events & Celebrations — birthdays, family gatherings, vacations, Christmas parties
-2. Small Businesses — staff uniforms, logo tees, event merch, seasonal shirts
-3. Group & Team Orders — matching tees for teams, trips, special occasions
+1. Events & Celebrations - birthdays, family gatherings, vacations, Christmas parties
+2. Small Businesses - staff uniforms, logo tees, event merch, seasonal shirts
+3. Group & Team Orders - matching tees for teams, trips, special occasions
 
 ## Content Rules
 
 - No "no minimum" messaging anywhere
 - No gym/PT-specific claims unless verified
 - No fabricated testimonials
-- No placeholder/stock images — use real work only or gradient placeholders with captions
+- No placeholder/stock images - use real work only or gradient placeholders with captions
 - No exaggerated experience claims
 - Keep messaging honest, local, and clear
 
 ## Technical Decisions
 
-- Static site (SSG) — no backend, no database
-- All leads via WhatsApp — no server-side form processing
+- Static site (SSG) - no backend, no database
+- All leads via WhatsApp - no server-side form processing
 - Fonts self-hosted via next/font/google (no external @import)
 - CSP: no unsafe-eval, no data:/blob: in img-src, self-hosted fonts only
 - HSTS enabled
@@ -45,5 +45,7 @@ My decisions, patterns, bugs solved, and preferences are there.
 
 ## Site Structure (Do Not Change)
 
-1. Hero → Trust Bar → Who We Serve → Pricing → Process → Portfolio → Instagram CTA → Why Us → CTA
+Superseded 24 Oct 2026 by the design handoff (tokens.css + shared `src/components/ks/`). Homepage order is now: Utility strip → Header → Hero → Pricing (01) → Recent work (02) → How it works (03) → Who we print for (04) → FAQ (05) → CTA band → Footer.
+
+Old order, for reference: Hero → Trust Bar → Who We Serve → Pricing → Process → Portfolio → Instagram CTA → Why Us → CTA
 2. No checkout, cart, payment, login, design editor, popups, or animations beyond existing

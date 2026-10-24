@@ -1,111 +1,63 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { FAQS, waLink } from "@/lib/constants";
-import FAQAccordion from "@/components/ui/FAQAccordion";
+import Button from "@/components/ks/Button";
+import CtaBand from "@/components/ks/CtaBand";
+import FaqAccordion from "@/components/ks/FaqAccordion";
+import PageHero from "@/components/ks/PageHero";
 
 export const metadata: Metadata = {
-  title: "FAQ | KS Web & Wear — Common Questions Answered",
+  title: "FAQ | KS Web & Wear - Common Questions Answered",
   description:
     "Answers to common questions about custom T-shirt printing at KS Web & Wear: minimum orders, turnaround time, DTF printing, pickup, and more.",
 };
 
+const facts = [
+  { label: "Turnaround", value: "2–4 business days" },
+  { label: "Min. order", value: "2 shirts" },
+  { label: "Pickup", value: "Tallawong, NSW 2762" },
+  { label: "Quote time", value: "Same day, on WhatsApp" },
+];
+
 export default function FAQPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-brand-navy pt-32 pb-20">
-        <div className="section-container text-center">
-          <span className="inline-block bg-brand-red/20 text-brand-red font-sora font-semibold text-xs uppercase tracking-widest px-3 py-1 rounded-full mb-6">
-            FAQ
-          </span>
-          <h1 className="font-sora font-bold text-4xl md:text-5xl text-white mb-6">
-            Common Questions
-          </h1>
-          <p className="font-inter text-white/70 text-xl max-w-xl mx-auto">
-            Everything you need to know about ordering custom printed merch
-            from us. Still have a question?{" "}
-            <a
-              href={waLink("default")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brand-whatsapp hover:underline"
-            >
-              Just WhatsApp us.
-            </a>
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="FAQ"
+        title="Common questions."
+        intro="Everything you need to know about ordering custom printed merch from us. Still have a question? Just WhatsApp us."
+      >
+        <Button href={waLink("default")} size="lg" icon={<MessageCircle size={20} aria-hidden="true" />}>
+          Ask on WhatsApp
+        </Button>
+      </PageHero>
 
-      {/* FAQ Content */}
-      <section className="section-padding bg-brand-light">
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto">
-            <FAQAccordion faqs={FAQS} />
-          </div>
-        </div>
-      </section>
-
-      {/* Still have questions */}
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-sora font-bold text-2xl md:text-3xl text-brand-navy mb-4">
-              Didn&apos;t Find Your Answer?
-            </h2>
-            <p className="font-inter text-brand-muted text-lg mb-8">
-              We&apos;re a real local business — just message us on WhatsApp and
-              we&apos;ll answer any question you have.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={waLink("default")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp text-base px-8 py-4"
-              >
-                <MessageCircle size={20} />
-                Ask on WhatsApp
-              </a>
-              <Link href="/contact" className="btn-outline px-8 py-4 justify-center">
-                Contact Us <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick reference cards */}
-      <section className="section-padding bg-brand-navy">
-        <div className="section-container">
-          <div className="text-center mb-10">
-            <h2 className="font-sora font-bold text-2xl text-white">
-              Quick Reference
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {[
-              { emoji: "⏱️", label: "Turnaround", value: "2–4 Business Days" },
-              { emoji: "📦", label: "Min. Order", value: "2 Shirts Per Order" },
-              { emoji: "📍", label: "Pickup", value: "Tallawong, NSW 2762" },
-              { emoji: "💬", label: "Quote Time", value: "Same Day (WhatsApp)" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center"
-              >
-                <div className="text-3xl mb-2">{item.emoji}</div>
-                <div className="font-sora font-semibold text-white text-sm mb-1">
-                  {item.label}
-                </div>
-                <div className="font-inter text-white/60 text-xs leading-relaxed">
-                  {item.value}
-                </div>
+      <section className="border-t border-ks-line">
+        <div className="ks-container ks-section-y flex flex-wrap gap-x-20 gap-y-10">
+          <dl className="m-0 flex flex-[1_1_17rem] flex-col gap-5">
+            {facts.map((fact) => (
+              <div key={fact.label} className="flex flex-col gap-1 border-t border-ks-line pt-4">
+                <dt className="ks-label text-ks-muted">{fact.label}</dt>
+                <dd className="ks-title m-0 text-xl">{fact.value}</dd>
               </div>
             ))}
+          </dl>
+          <div className="min-w-0 flex-[999_1_35rem]">
+            <FaqAccordion items={FAQS} />
           </div>
         </div>
       </section>
+
+      <CtaBand title="Didn't find your answer?">
+        <div className="flex flex-wrap gap-3">
+          <Button href={waLink("default")} variant="ink" size="lg" icon={<MessageCircle size={20} aria-hidden="true" />}>
+            Ask on WhatsApp
+          </Button>
+          <Button href="/contact" variant="ink" size="lg">
+            Contact us
+          </Button>
+        </div>
+      </CtaBand>
     </>
   );
 }

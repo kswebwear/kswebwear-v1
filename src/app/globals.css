@@ -14,10 +14,17 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--ks-tap);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
   }
 
   body {
-    @apply font-inter text-brand-navy bg-white antialiased;
+    @apply font-ks-sans text-ks-ink bg-ks-paper antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -26,7 +33,37 @@
 }
 
 @layer components {
-  /* Primary CTA - WhatsApp Green */
+  /* KS design system (tokens.css) */
+  .ks-container {
+    @apply mx-auto w-full max-w-ks-container px-ks-gutter;
+  }
+
+  .ks-section-y {
+    @apply py-16 md:py-ks-section;
+  }
+
+  /* Archivo 900, expanded, tight. Size comes from the text-ks-* class. */
+  .ks-display {
+    @apply font-black leading-[0.95] tracking-[-0.03em];
+    font-stretch: var(--ks-display-stretch);
+  }
+
+  .ks-title {
+    @apply font-extrabold;
+    font-stretch: var(--ks-title-stretch);
+  }
+
+  /* Form field: square, ink border on focus */
+  .ks-input {
+    @apply min-h-ks-btn w-full rounded-ks border-[1.5px] border-ks-line-strong bg-ks-paper px-4 py-3 text-base text-ks-ink placeholder:text-ks-muted focus:border-ks-ink focus:outline-none;
+  }
+
+  /* Mono label: uppercase, 12-14px, 0.08em tracking */
+  .ks-label {
+    @apply font-ks-mono text-ks-label uppercase tracking-[0.08em];
+  }
+
+  /* Legacy (inner pages) - Primary CTA - WhatsApp Green */
   .btn-whatsapp {
     @apply inline-flex items-center gap-2 bg-brand-whatsapp text-white font-sora font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-green-500 active:scale-95 transition-all duration-200 text-sm md:text-base;
   }

@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, Inter, Sora } from "next/font/google";
+import "../styles/tokens.css";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import WhatsAppFAB from "@/components/ui/WhatsAppFAB";
+import UtilityStrip from "@/components/ks/UtilityStrip";
+import SiteHeader from "@/components/ks/SiteHeader";
+import SiteFooter from "@/components/ks/SiteFooter";
+import MobileActionBar from "@/components/ks/MobileActionBar";
 import { SITE_CONFIG } from "@/lib/constants";
 
+const archivo = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
+// Still used by the inner pages (services, about, faq, contact) until they get the new design.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -62,12 +79,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${inter.variable} ${sora.variable}`}>
-      <body className="font-inter antialiased">
-        <Navbar />
+    <html lang="en-AU" className={`${archivo.variable} ${plexMono.variable} ${inter.variable} ${sora.variable}`}>
+      <body className="font-ks-sans antialiased">
+        <UtilityStrip />
+        <SiteHeader />
         <main>{children}</main>
-        <Footer />
-        <WhatsAppFAB />
+        <SiteFooter />
+        <MobileActionBar />
       </body>
     </html>
   );

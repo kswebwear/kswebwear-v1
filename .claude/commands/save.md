@@ -5,11 +5,11 @@ description: Save the current conversation or a specific insight into the wiki v
 Read the `save` skill. Then run the save workflow for this conversation.
 
 Usage:
-- `/save` — analyze the full conversation and save the most valuable content
-- `/save [name]` — save with a specific note title (skip the naming question)
-- `/save session` — save a complete session summary
-- `/save concept [name]` — explicitly save as a concept page
-- `/save decision [name]` — explicitly save as a decision record
+- `/save` - analyze the full conversation and save the most valuable content
+- `/save [name]` - save with a specific note title (skip the naming question)
+- `/save session` - save a complete session summary
+- `/save concept [name]` - explicitly save as a concept page
+- `/save decision [name]` - explicitly save as a decision record
 
 If no vault is set up yet, say: "No wiki vault found. Run /wiki first to set one up."
 
