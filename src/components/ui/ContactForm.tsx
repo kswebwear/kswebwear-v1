@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { MessageCircle, Send, CheckCircle } from "lucide-react";
-import { waLink } from "@/lib/constants";
+import { SITE_CONFIG, waLink } from "@/lib/constants";
 
 type FormData = {
   name: string;
@@ -47,7 +47,7 @@ export default function ContactForm() {
         `Message: ${data.message.trim()}`
     );
 
-    window.open(`https://wa.me/61410369036?text=${message}`, "_blank");
+    window.open(`${SITE_CONFIG.whatsappLink}?text=${message}`, "_blank", "noopener,noreferrer");
 
     setSubmitted(true);
     reset();
