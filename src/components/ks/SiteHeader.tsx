@@ -15,6 +15,9 @@ const links = [
   { href: SITE_CONFIG.designerUrl, label: "Design tool" },
 ];
 
+const isExternal = (href: string) => href.startsWith("http");
+const externalProps = { target: "_blank", rel: "noopener noreferrer" } as const;
+
 const linkClass = "inline-flex min-h-ks-tap items-center text-[15px] font-medium text-ks-ink no-underline hover:text-ks-muted";
 
 export default function SiteHeader() {
@@ -34,7 +37,7 @@ export default function SiteHeader() {
 
         <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className={linkClass}>
+            <Link key={link.href} href={link.href} className={linkClass} {...(isExternal(link.href) ? externalProps : {})}>
               {link.label}
             </Link>
           ))}
@@ -60,7 +63,13 @@ export default function SiteHeader() {
         <nav id="mobile-nav" aria-label="Main" className="border-t border-ks-line md:hidden">
           <div className="ks-container flex flex-col py-2">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className={`${linkClass} border-b border-ks-line last:border-b-0`}>
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`${linkClass} border-b border-ks-line last:border-b-0`}
+                {...(isExternal(link.href) ? externalProps : {})}
+              >
                 {link.label}
               </Link>
             ))}
